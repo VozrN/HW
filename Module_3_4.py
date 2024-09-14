@@ -1,14 +1,19 @@
 def single_root_words(root_word, *other_words):
+    other_words_str = []
+    for i in other_words:
+        other_words_str.append(i)
+    for i in range(len(other_words_str)):
+        other_words_str[i] = other_words_str[i].lower()
+    root_word_str_0=str(root_word)
+    root_word_str=root_word_str_0.lower()
     same_words = []
-    for word in other_words:
-        if root_word in word:
+    for word in other_words_str:
+        if root_word_str in word or word in root_word_str:
             same_words.append(word)
-    print(f'Слова, содержащие "{root_word}" в составе слова: {same_words}')
+    return (same_words)
 
 
-other_words_full = input('Введите в строку любые слова: ')
-other_words = other_words_full.lower()
-other_words_split = other_words.split()
-root_word_full = input('Слова с каким корнем/частью слова будем искать: ')
-root_word = root_word_full.lower()
-single_root_words(root_word, *other_words_split)
+result1 = single_root_words('rich', 'Richiest', 'orichalcum', 'cheers', 'richies')
+result2 = single_root_words('Disablement', 'Able', 'Mable', 'Disable', 'Bagel')
+print(result1)
+print(result2)
