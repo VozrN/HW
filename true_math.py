@@ -1,13 +1,13 @@
 import math
 
-math.inf
+from math import inf
 
 def divide(first, second):
     try:
         result = round(first / second, 2)
     except ZeroDivisionError:
-        print(math.inf)
+        return inf
     else:
-        print(result)
+        return result
 
 
